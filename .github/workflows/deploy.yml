@@ -1,0 +1,33 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - master  # 本番ブランチ
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2  # リポジトリをチェックアウト
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'  # Node.jsのバージョンを指定
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build  # ビルドコマンド
+
+    - name: Deploy to Server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}  # サーバーのホスト名
+        username: ${{ secrets.USERNAME }}  # SSHユーザー名
+        password: ${{ secrets.PASSWORD }}  # SSHパスワード
+        port: ${{ secrets.PORT }}  # SSHポート
+        source: "public/"  # ビルドされたファイルがあるディレクトリ
+        target: "/path/to/your/server/directory"  # サーバー上のディレクトリ
