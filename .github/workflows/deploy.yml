@@ -11,23 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2  # リポジトリをチェックアウト
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'  # Node.jsのバージョンを指定
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build  # ビルドコマンド
-
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}  # サーバーのホスト名
-        username: ${{ secrets.USERNAME }}  # SSHユーザー名
-        password: ${{ secrets.PASSWORD }}  # SSHパスワード
-        port: ${{ secrets.PORT }}  # SSHポート
+        username: ${{ secrets.ACCOUNT }}  # SSHユーザー名
+        password: ${{ secrets.SSH_PASSWORD }}  # SSHパスワード
+        port: ${{ secrets.SSH_PORT }}  # SSHポート
         source: "public/"  # ビルドされたファイルがあるディレクトリ
-        target: "/path/to/your/server/directory"  # サーバー上のディレクトリ
+        target: "/home/users/2/main.jp-yuuki-okubo/web/yuuki-okubo"  # サーバー上のディレクトリ
