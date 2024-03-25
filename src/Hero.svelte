@@ -10,9 +10,9 @@
     <div class="navigation__wrapper wrapper--large">
         <nav class="navigation__container">
             <ul class="navigation__list">
-                <li><a href="#0">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#work">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <!-- <li><a href="#blog">Blog</a></li> -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-<header class="header">
+<header class="header" id="home">
     <div class="introduction">
         <h1 class="introduction__content">
             <span class="introduction__content-el introduction__content-el--name">Yuuki Okubo</span>
