@@ -1,25 +1,24 @@
 <script>
     let projects = [
         {
-            title: "Strategik INC",
-            description: "The awesome guys at Strategik INC were superb to work with because they knew their goals exactly.",
-            imageUrl: "./img/work-strategik.jpg",
-            altText: "Strategik INC",
-            category: "Web Design"
+            title: "Memo2L",
+            description: "リマインダー機能を兼ね備えたLINEと連携したメモアプリです。",
+            imageUrl: "./img/memo2l.png",
+            altText: "Memo2L",
+            url: "https://memo2l.site/"
         },
         {
-            title: "Ēostre UI Kit",
-            description: "Ēostre UI Kit is made following the latest design trends with focus on usability and fast workflow.",
-            imageUrl: "./img/work-eostre.jpg",
-            altText: "Ēostre UI Kit",
-            category: "Web Design"
+            title: "solota",
+            description: "インターンのマッチングアプリ",
+            imageUrl: "./img/solota.png",
+            altText: "solota",
+            url: "https://solota.jp/"
         },
         {
-            title: "Go Outside",
-            description: "Quick concept for a fictitious wildlife exploration app. Grab the PSD and start your own exploration.",
-            imageUrl: "./img/work-go-outside.jpg",
-            altText: "Go Outside App",
-            category: "App Design"
+            title: "エクセルの動作が重いのを回避アプリ",
+            description: "大量のデータを含むエクセルで、検索ができなくなってしまった。との要望から開発しました。",
+            imageUrl: "./img/excel-app.png",
+            altText: "エクセルアプリ",
         }
     ];
 </script>
@@ -28,14 +27,16 @@
     <h2 class="work__heading title">Latest Projects</h2>
     <div class="work__wrapper wrapper--large">
         <ul class="work__list">
-            {#each projects as {title, description, imageUrl, altText, category}, index}
+            {#each projects as {title, description, imageUrl, altText, category, url}, index}
                 <li class="work__list-el {index === 0 ? 'work__list-el--is-active' : ''}">
                     <div class="work__content">
                         <div class="work__content-blurb blurb blurb--framed">
-                            <h3 class="blurb__heading">{title}<br>{category}</h3>
+                            <h3 class="blurb__heading">{title}</h3>
                             <p class="blurb__copy">{description}</p>
                         </div>
-                        <a class="transform-link" href="#0">See full project</a>
+                        {#if url}
+                            <a class="transform-link" href="{url}" target="_blank" rel="noopener noreferrer">See full project</a>
+                        {/if}
                     </div>
                     <div class="work__visual">
                         <img src="{imageUrl}" alt="{altText}">
