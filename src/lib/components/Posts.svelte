@@ -20,7 +20,7 @@
                     alt: "画像の説明", // この例では静的な文字列を使用していますが、適宜変更してください
                     title: item.title,
                     excerpt: truncateText(stripHtml(item.content), 100), // HTMLを除去し、100文字で切り詰める
-                    link: "#0" // 実際のリンクに置き換える必要があります
+                    // link: "/blog/" + item.id // 実際のリンクに置き換える必要があります
                 }));
     }
 
@@ -53,6 +53,6 @@
         {/each}
     </div>
     <div class="blog__view-more">
-        <a class="button blog__view-more--el" href="#0">View More</a>
+        <a class="button blog__view-more--el" href="/">View More</a>
     </div>
 </section>
