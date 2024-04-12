@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master  # 本番ブランチ
+      - sveltekit  # 本番ブランチ
 
 jobs:
   build-and-deploy:
